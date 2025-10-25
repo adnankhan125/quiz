@@ -21,8 +21,7 @@ public function store(Request $request)
         'username' => 'required|string|max:100|unique:users,username',
     ]);
 
-     session()->flush(); 
-
+ 
      $user = \App\Models\User::create([
         'username' => $request->username,
     ]);

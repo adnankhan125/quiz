@@ -12,9 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         // Use your own VerifyCsrfToken that disables CSRF
-        $middleware->web(append: [
-            \App\Http\Middleware\VerifyCsrfToken::class,
-        ]);
+        // $middleware->web(append: [
+        //     \App\Http\Middleware\VerifyCsrfToken::class,
+        // ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
