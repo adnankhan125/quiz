@@ -10,8 +10,7 @@ use App\Models\UserResult;
 class QuizController extends Controller
 {
 
-    // ✅ Load next random question
-    public function getQuestion($index = 0)
+     public function getQuestion($index = 0)
     {
         $asked = session('asked_questions', []);
         $totalToAsk = 5;
@@ -39,8 +38,7 @@ class QuizController extends Controller
         ]);
     }
 
-    // ✅ Handle user answer or skip
-    public function submitAnswer(Request $request)
+     public function submitAnswer(Request $request)
     {
 
          // 👇 debugging purpose
@@ -55,8 +53,7 @@ class QuizController extends Controller
 
         $question = Question::with('answers')->find($request->question_id);
 
-        // ✅ Record in user_result table
-        UserResult::create([
+         UserResult::create([
             'user_id' => $request->user_id,
             'question_id' => $request->question_id,
             'answer_id' => $request->answer_id,
