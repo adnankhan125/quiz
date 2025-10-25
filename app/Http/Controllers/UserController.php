@@ -21,16 +21,13 @@ public function store(Request $request)
         'username' => 'required|string|max:100|unique:users,username',
     ]);
 
-    // ✅ Completely reset session before creating new user
-    session()->flush(); 
+     session()->flush(); 
 
-    // ✅ Create new user
-    $user = \App\Models\User::create([
+     $user = \App\Models\User::create([
         'username' => $request->username,
     ]);
 
-    // ✅ Start fresh session
-    session([
+     session([
         'user_id' => $user->id,
         'asked_questions' => [],
         'quiz_stats' => ['correct' => 0, 'wrong' => 0, 'skipped' => 0],
